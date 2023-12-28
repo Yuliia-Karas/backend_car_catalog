@@ -1,0 +1,19 @@
+{
+  "name": "backend_car_catalog",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env ./server.js",
+    "dev": "nodemon --env-file=.env ./server.js",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint --fix **/*.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.4.0-pre.5",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
