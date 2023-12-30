@@ -1,12 +1,22 @@
 const express = require("express");
-
+const cors = require("cors");
 
 const app = express();
 
-const db = require('./database');
+app.use(cors());
+const { carCatalog } = require("./database");
 
 app.get("/", (req, res) => {
   res.send("Hello,world!");
+});
+
+app.get("/cars", async (req, res) => {
+  try {
+    const data = await carCatalog;
+    res.send(data.rows);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 });
 
 app.listen(3000, () => {

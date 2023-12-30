@@ -1,6 +1,5 @@
 const { createClient } = require("@libsql/client");
 
-
 const { DB_HOST, SECRET_KEY } = process.env;
 
 const client = createClient({
@@ -8,6 +7,6 @@ const client = createClient({
   authToken: SECRET_KEY,
 });
 
-client.execute("select * from car_catalog").then((data)=>{console.log(data);}) ;
+const carCatalog = client.execute("select * from car_catalog");
 
-module.exports = client;
+module.exports = { client, carCatalog };
